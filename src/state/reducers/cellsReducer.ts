@@ -38,6 +38,8 @@ const cellReducer = produce(
         return state;
       case ActionType.DELETE_CELL:
         delete state.data[action.payload];
+        const delteIndex = state.order.findIndex((id) => id === action.payload);
+        state.order.splice(delteIndex, 1);
         return state;
       case ActionType.UPDATE_CELL:
         /*return {
@@ -63,7 +65,7 @@ const cellReducer = produce(
 
         index < 0
           ? state.order.push(cell.id)
-          : state.order.splice(index - 1, 0, cell.id);
+          : state.order.splice(index, 0, cell.id);
 
         state.data[cell.id] = cell;
         return state;
