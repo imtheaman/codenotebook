@@ -3,11 +3,14 @@ import CodeEditor from './code-editor';
 import Preview from './preview';
 import bundle from '../bundler';
 import Resizable from './resizable';
+import { Cell } from '../state/cell.type';
 
-const CodeCell = () => {
-  const [code, setCode] = useState('');
-  const [err, setErr] = useState('');
-  const [input, setInput] = useState('');
+type Props = {
+  cell: Cell
+}
+
+const CodeCell: React.FC<Props> = ({cell}) => {
+  
 
   useEffect(() => {
     const timer = setTimeout(async () => {
