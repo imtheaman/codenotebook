@@ -3,8 +3,8 @@ import cellReducer from "./cellsReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  cell: cellReducer,
+  cells: cellReducer,
 });
 
 export default rootReducer;
-export type RootReducerType = ReturnType<typeof rootReducer>;
+export type RootStateType = ReturnType<typeof rootReducer>;

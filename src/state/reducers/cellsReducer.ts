@@ -61,11 +61,9 @@ const cellReducer = produce(
           content: "",
         };
 
-        if (index < 0) {
-          state.order.push(cell.id);
-        } else {
-          state.order.splice(index - 1, 0, cell.id);
-        }
+        index < 0
+          ? state.order.push(cell.id)
+          : state.order.splice(index - 1, 0, cell.id);
 
         state.data[cell.id] = cell;
         return state;
