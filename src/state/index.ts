@@ -1,2 +1,2 @@
-import * from './store'
-import * from './reducers'
+import * as store from './store'
+import * as reducers from './reducers'
