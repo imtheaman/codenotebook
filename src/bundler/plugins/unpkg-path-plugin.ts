@@ -22,7 +22,7 @@ export const unpkgPathPlugin = () => {
       build.onResolve({ filter: /.*/ }, async (args: any) => {
         return {
           namespace: "a",
-          path: `https://unkpkg.com/${args.path}`,
+          path: `https://unpkg.com/${args.path}`,
         };
       });
     },

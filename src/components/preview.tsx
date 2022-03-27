@@ -1,5 +1,5 @@
-import "./preview.css";
-import { useRef, useEffect } from "react";
+import './preview.css';
+import { useRef, useEffect } from 'react';
 
 interface PreviewProps {
   code: string;
@@ -8,44 +8,42 @@ interface PreviewProps {
 
 const html = `
     <html>
-    <head>
-    <style>
-    {background-color: white;}
-    </style>
-    </head>
-    <body>
-    <div id='root'></div>
-    <script>
-        const handleError = (err) => {
+      <head>
+        <style>html { background-color: #112439; }</style>
+      </head>
+      <body>
+        <div id="root"></div>
+        <script>
+          const handleError = (err) => {
             const root = document.querySelector('#root');
-            root.innerHTML = '<div style="color:red;"><h4>Runtime Error</h4>' + err + '</div>;
+            root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
             console.error(err);
-        }
+          };
 
-        window.addEventListener('error', (event) => {
-            event.preventDefault()
-            handleError(event.error)
-        });
+          window.addEventListener('error', (event) => {
+            event.preventDefault();
+            handleError(event.error);
+          });
 
-        window.addEventListener('message', (event) => {
+          window.addEventListener('message', (event) => {
             try {
-                eval(event.data);
+              eval(event.data);
             } catch (err) {
-                handleError(err)
+              handleError(err);
             }
-        }, false)
-    </script>
-    </body>
+          }, false);
+        </script>
+      </body>
     </html>
-`;
+  `;
 
 const Preview: React.FC<PreviewProps> = ({ code, err }) => {
-  const iframeRef = useRef<any>();
+  const iframe = useRef<any>();
 
   useEffect(() => {
-    iframeRef.current.srcdoc = html;
+    iframe.current.srcdoc = html;
     setTimeout(() => {
-      iframeRef.current.contentWindow.postMessage(code, "*");
+      iframe.current.contentWindow.postMessage(code, '*');
     }, 50);
   }, [code]);
 
@@ -53,7 +51,7 @@ const Preview: React.FC<PreviewProps> = ({ code, err }) => {
     <div className="preview-wrapper">
       <iframe
         title="preview"
-        ref={iframeRef}
+        ref={iframe}
         sandbox="allow-scripts"
         srcDoc={html}
       />

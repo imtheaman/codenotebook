@@ -1,13 +1,12 @@
 {
-  "name": "jbook",
+  "name": "js-notebook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@monaco-editor/react": "3.7.4",
+    "@monaco-editor/react": "^3.7.4",
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
-    "@types/axios": "^0.14.0",
     "@types/jest": "^26.0.19",
     "@types/jscodeshift": "0.7.2",
     "@types/node": "^12.19.11",
