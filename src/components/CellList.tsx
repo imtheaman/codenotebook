@@ -3,6 +3,7 @@ import { useTypedSelector } from "../hooks/use-typed-selector";
 import { Cell, Id } from "../state/cell.type";
 import CellListItem from "./CellListItem";
 import InsertCell from "./InsertCell";
+import "./cell-list.css";
 
 const CellList: React.FC = () => {
   // @ts-ignore
@@ -11,7 +12,7 @@ const CellList: React.FC = () => {
   );
 
   return (
-    <div>
+    <div className="cell-list">
       <InsertCell forceVisible={!cells.length} nextCellId="" />
       {cells.map((cell) => (
         <Fragment key={cell.id}>
