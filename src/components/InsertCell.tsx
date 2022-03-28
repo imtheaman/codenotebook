@@ -4,14 +4,14 @@ import "./insert-cell.css";
 
 interface Props {
   nextCellId: Id;
-  forceVisible?: boolean
+  forceVisible?: boolean;
 }
 
 const InsertCell: React.FC<Props> = ({ forceVisible, nextCellId }) => {
   const { insertCellAfter } = useActions();
 
   return (
-    <div className={`insert-cell ${forceVisible && "force-visible"}`}>
+    <div className={`insert-cell ${forceVisible ? "force-visible" : ""}`}>
       <div className="add-buttons">
         <button
           className="button is-rounded is-primary is-small"

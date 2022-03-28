@@ -5,6 +5,7 @@ import Resizable from "./resizable";
 import { Cell } from "../state/cell.type";
 import { useActions } from "../hooks/use-actions";
 import { useTypedSelector } from "../hooks/use-typed-selector";
+import "./code-cell.css";
 
 type Props = {
   cell: Cell;
@@ -40,13 +41,17 @@ const CodeCell: React.FC<Props> = ({ cell }) => {
             onChange={(value) => updateCell(id, value)}
           />
         </Resizable>
-        {bundled && !bundled.bundling ? (
-          <Preview code={bundled.code} err={bundled.err} />
-        ) : (
-          <div className="progress-cover">
-            <progress className="progress is-small is-primary" max="100">Loading</progress>
-          </div>
-        )}
+        <div className="progress-wrapper">
+          {bundled && !bundled.bundling ? (
+            <Preview code={bundled.code} err={bundled.err} />
+          ) : (
+            <div className="progress-cover">
+              <progress className="progress is-small" max="100">
+                Loading
+              </progress>
+            </div>
+          )}
+        </div>
       </div>
     </Resizable>
   );
