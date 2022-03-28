@@ -1,7 +1,8 @@
 .insert-cell {
   position: relative;
   opacity: 0;
-  transition: opacity 0.3s ease-in 0.1s;
+  transition: opacity 0.1s ease-out 0.1s;
+  margin: 10px 0;
 }
 
 .insert-cell:hover {
