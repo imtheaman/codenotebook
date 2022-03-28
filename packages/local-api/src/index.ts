@@ -1,12 +1,13 @@
 import express from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
+import path from "path";
 
 export const serve = (
   port: number,
   filename: string,
   dir: string,
   useProxy: boolean
-): void => {
+): Promise<void> => {
   const app = express();
 
   if (useProxy) {
@@ -17,5 +18,12 @@ export const serve = (
         logLevel: "silent",
       })
     );
+  } else {
+    const pkgPath = require.resolve("local-client/build/index.html");
+    app.use(express.static(path.dirname(pkgPath)));
   }
+
+  return new Promise<void>((resolve, reject) => {
+    app.listen(port, resolve).on("error", reject);
+  });
 };
