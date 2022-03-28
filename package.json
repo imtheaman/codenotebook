@@ -1,5 +1,5 @@
 {
-  "name": "js-notebook",
+  "name": "local-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
