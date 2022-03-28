@@ -16,6 +16,11 @@ const CodeCell: React.FC<Props> = ({ cell }) => {
   const bundled = useTypedSelector(({ bundles }) => bundles?.[cell.id]);
 
   useEffect(() => {
+    if (!bundled) {
+      createBundle(id, content);
+      return;
+    }
+
     const timer = setTimeout(async () => {
       createBundle(id, content);
     }, 750);
@@ -23,7 +28,8 @@ const CodeCell: React.FC<Props> = ({ cell }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [content, id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [content, id, createBundle]);
 
   return (
     <Resizable direction="vertical">
@@ -34,10 +40,12 @@ const CodeCell: React.FC<Props> = ({ cell }) => {
             onChange={(value) => updateCell(id, value)}
           />
         </Resizable>
-        {bundled ? (
+        {bundled && !bundled.bundling ? (
           <Preview code={bundled.code} err={bundled.err} />
         ) : (
-          "Loading..."
+          <div className="progress-cover">
+            <progress className="progress is-small is-primary" max="100">Loading</progress>
+          </div>
         )}
       </div>
     </Resizable>
