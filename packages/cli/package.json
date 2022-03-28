@@ -1,8 +1,7 @@
 {
   "name": "cli",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "Command line interface for js-notebook",
   "scripts": {
     "start": "tsc --watch --preserveWatchOutput"
   },
@@ -11,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^7.0.0",
-    "package.json": "^2.0.1"
+    "local-api": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
