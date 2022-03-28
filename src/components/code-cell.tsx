@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CodeEditor from "./code-editor";
 import Preview from "./preview";
-import bundle from "../bundler";
 import Resizable from "./resizable";
 import { Cell } from "../state/cell.type";
 import { useActions } from "../hooks/use-actions";
+import { useTypedSelector } from "../hooks/use-typed-selector";
 
 type Props = {
   cell: Cell;
@@ -12,21 +12,18 @@ type Props = {
 
 const CodeCell: React.FC<Props> = ({ cell }) => {
   const { id, content } = cell;
-  const { updateCell } = useActions();
-  const [code, setCode] = useState('')
-  const [err, setErr] = useState('')
+  const { updateCell, createBundle } = useActions();
+  const bundled = useTypedSelector(({ bundles }) => bundles?.[cell.id]);
 
   useEffect(() => {
     const timer = setTimeout(async () => {
-      const output = await bundle(content);
-      setCode(output.code);
-      setErr(output.err);
+      createBundle(id, content);
     }, 750);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [content]);
+  }, [content, id]);
 
   return (
     <Resizable direction="vertical">
@@ -37,7 +34,11 @@ const CodeCell: React.FC<Props> = ({ cell }) => {
             onChange={(value) => updateCell(id, value)}
           />
         </Resizable>
-        <Preview code={code} err={err} />
+        {bundled ? (
+          <Preview code={bundled.code} err={bundled.err} />
+        ) : (
+          "Loading..."
+        )}
       </div>
     </Resizable>
   );
