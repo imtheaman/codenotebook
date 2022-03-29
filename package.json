@@ -1,5 +1,5 @@
 {
-  "name": "js-notebook",
+  "name": "root",
   "private": true,
   "devDependencies": {
     "lerna": "^5.1.1"
