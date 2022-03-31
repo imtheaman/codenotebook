@@ -31,7 +31,7 @@
 
 .insert-cell .add-buttons button {
   margin: 0 20px;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   border: 0.5px solid rgb(99, 113, 126);
 }
-
