@@ -9,10 +9,27 @@ interface PreviewProps {
 const html = `
     <html>
       <head>
-        <style>html { background-color: #112439; color: white; font-family: system-ui, sans-serif }</style>
+        <style>html { background-color: #112439; color: white; font-family: system-ui, sans-serif }
+  ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(157, 157, 157);
+}</style>
       </head>
       <body>
-        <div id="root"></div>
+        <div id="root">
+        <div id="reactRoot"></div>
+        </div>
         <script>
           const handleError = (err) => {
             const root = document.querySelector('#root');
