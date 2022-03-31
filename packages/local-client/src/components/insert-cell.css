@@ -1,8 +1,8 @@
 .insert-cell {
   position: relative;
   opacity: 0;
-  transition: opacity 0.1s ease-out 0.1s;
-  margin: 10px 0;
+  transition: opacity 0.1s ease-out;
+  padding: 5px 0;
 }
 
 .insert-cell:hover {
@@ -31,4 +31,7 @@
 
 .insert-cell .add-buttons button {
   margin: 0 20px;
+  padding: 0.4rem 1rem;
+  border: 0.5px solid rgb(99, 113, 126);
 }
+

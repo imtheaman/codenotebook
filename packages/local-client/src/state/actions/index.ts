@@ -27,6 +27,7 @@ export interface InsertCellAfterAction {
   payload: {
     id: Id;
     type: CellTypes;
+    content: string;
   };
 }
 

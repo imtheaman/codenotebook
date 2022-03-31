@@ -55,12 +55,12 @@ const cellReducer = produce(
         state.data[action.payload.id].content = action.payload.content;
         return state;
       case ActionType.INSERT_CELL_AFTER:
-        const { id, type } = action.payload;
+        const { id, type, content } = action.payload;
         const index = state.order.findIndex((elId) => elId === id);
         const cell: Cell = {
           id: randomId(),
           type: type,
-          content: "",
+          content: content,
         };
 
         index < 0

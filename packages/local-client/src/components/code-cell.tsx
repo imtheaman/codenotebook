@@ -13,7 +13,7 @@ type Props = {
 };
 
 const CodeCell: React.FC<Props> = ({ cell }) => {
-  const { id } = cell;
+  const { id, content } = cell;
   const { updateCell, createBundle } = useActions();
   const bundled = useTypedSelector(({ bundles }) => bundles?.[cell.id]);
   const cumulativeCode = useCumulativeCode(id);
@@ -39,7 +39,7 @@ const CodeCell: React.FC<Props> = ({ cell }) => {
       <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
         <Resizable direction="horizontal">
           <CodeEditor
-            initialValue=""
+            initialValue={content}
             onChange={(value) => updateCell(id, value)}
           />
         </Resizable>

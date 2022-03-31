@@ -39,13 +39,15 @@ export const deleteCell = (id: Id): DeleteCellAction => {
 
 export const insertCellAfter = (
   id: Id,
-  type: CellTypes
+  type: CellTypes,
+  content: string
 ): InsertCellAfterAction => {
   return {
     type: ActionType.INSERT_CELL_AFTER,
     payload: {
       id,
       type,
+      content,
     },
   };
 };
