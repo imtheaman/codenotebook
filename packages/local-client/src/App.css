@@ -18,6 +18,6 @@
 }
 
 .button {
-  background-color: #112439;
-  color: #ffffff;
+  background-color: #112439 !important;
+  color: #ffffff !important;
 }
