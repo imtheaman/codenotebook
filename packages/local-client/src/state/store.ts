@@ -10,8 +10,7 @@ store.dispatch({
   payload: {
     id: "",
     type: "code",
-    content:
-`class Developer extends Person {
+    content: `class Developer extends Person {
   constructor(name, birthYear) {
     super(name, birthYear);
     this.role = "developer";
@@ -32,8 +31,7 @@ store.dispatch({
   payload: {
     id: "",
     type: "code",
-    content: 
-`class Person {
+    content: `class Person {
   constructor(name, birthYear) {
     this.name = name;
     this.birthYear = birthYear;
@@ -52,7 +50,8 @@ store.dispatch({
   payload: {
     id: "",
     type: "text",
-    content: "## You can now code javascript inside your browser\n> Call show() to render something on the screen",
+    content:
+      "## You can now code javascript inside your browser offline\n> Call show() to render something on the screen",
   },
 });
 

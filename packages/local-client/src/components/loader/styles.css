@@ -1,23 +1,14 @@
-.progress-wrapper {
-  height: 100%;
-  flex-grow: 1;
-  background-color: #112439;
-}
-
-.progress-cover {
-  height: 100%;
+.loading-container {
+  height: 90vh;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding-left: 10%;
-  padding-right: 10%;
-  animation: fadeIn 0.5s;
+  align-items: center;
 }
 
-.progress-loader {
-  width: 30px;
-  height: 30px;
+.loading-spinner {
+  width: 50px;
+  height: 50px;
   border-style: solid;
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;

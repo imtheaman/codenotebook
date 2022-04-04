@@ -1,13 +1,15 @@
-import React from "react";
+import { Suspense, lazy } from "react";
 import "./App.css";
 import "bulmaswatch/superhero/bulmaswatch.min.css";
-import CellList from "./components/CellList";
+import Loader from "./components/loader";
+
+const CellList = lazy(() => import("./components/CellList"));
 
 const App = () => {
   return (
-    <div>
+    <Suspense fallback={<Loader />}>
       <CellList />
-    </div>
+    </Suspense>
   );
 };
 

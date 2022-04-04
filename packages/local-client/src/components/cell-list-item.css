@@ -1,10 +1,16 @@
 .cell-list-item {
   position: relative;
-  margin: 20px;
+  margin: 10px 2px;
 }
 
 .action-bar-wrapper {
   height: 30px;
   width: 100%;
   background-color: #37414b;
+}
+
+@media (min-width: 750px) {
+  .cell-list-item {
+    margin: 20px;
+  }
 }

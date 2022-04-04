@@ -48,9 +48,7 @@ const CodeCell: React.FC<Props> = ({ cell }) => {
             <Preview code={bundled.code} err={bundled.err} />
           ) : (
             <div className="progress-cover">
-              <progress className="progress is-small" max="100">
-                Loading
-              </progress>
+              <span className="progress-loader"></span>
             </div>
           )}
         </div>

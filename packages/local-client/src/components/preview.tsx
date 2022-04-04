@@ -16,6 +16,7 @@ const html = `
 
 ::-webkit-scrollbar {
   height: 8px;
+  width: 8px;
   background-color: transparent;
 }
 
