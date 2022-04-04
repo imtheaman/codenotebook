@@ -22,3 +22,8 @@
   background-color: #112439 !important;
   color: #ffffff !important;
 }
+
+.button.btn {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}

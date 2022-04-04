@@ -14,19 +14,19 @@ const InsertCell: React.FC<Props> = ({ forceVisible, nextCellId }) => {
     <div className={`insert-cell ${forceVisible ? "force-visible" : ""}`}>
       <div className="add-buttons">
         <button
-          className="button is-small"
+          className="button btn is-small"
           onClick={() => insertCellAfter(nextCellId, "code", "")}
         >
-          <span className="icon is-small">
+          <span className="icon">
             <i className="fas fa-plus" />
           </span>
           <span>Code</span>
         </button>
         <button
-          className="button is-small"
+          className="button btn is-small"
           onClick={() => insertCellAfter(nextCellId, "text", "")}
         >
-          <span className="icon is-small">
+          <span className="icon">
             <i className="fas fa-plus" />
           </span>
           <span>Text</span>
