@@ -3,7 +3,7 @@ import { ActionType } from "../action-types";
 import { Action } from "../actions";
 import { Cell, Id } from "../cell.type";
 
-interface CellState {
+interface CellsState {
   loading: boolean;
   error: string | null;
   order: Id[];
@@ -12,15 +12,15 @@ interface CellState {
   };
 }
 
-const INITIAL_STATE: CellState = {
+const INITIAL_STATE: CellsState = {
   loading: false,
   error: null,
   order: [],
   data: {},
 };
 
-const cellReducer = produce(
-  (state: CellState = INITIAL_STATE, action: Action): CellState => {
+const cellsReducer = produce(
+  (state: CellsState = INITIAL_STATE, action: Action): CellsState => {
     switch (action.type) {
       case ActionType.MOVE_CELL:
         const { id: cellId, direction } = action.payload;
@@ -42,16 +42,6 @@ const cellReducer = produce(
         state.order.splice(delteIndex, 1);
         return state;
       case ActionType.UPDATE_CELL:
-        /*return {
-        ...state,
-        data: {
-          ...state.data,
-          [action.payload.id]: {
-            ...state.data[action.payload.id],
-            content: action.payload.content,
-          },
-        },
-      };*/
         state.data[action.payload.id].content = action.payload.content;
         return state;
       case ActionType.INSERT_CELL_AFTER:
@@ -77,4 +67,4 @@ const cellReducer = produce(
 
 const randomId = () => Math.random().toString(36).substring(2, 5);
 
-export default cellReducer;
+export default cellsReducer;

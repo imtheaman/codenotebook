@@ -1,10 +1,10 @@
 // root reducer file
-import cellReducer from "./cellsReducer";
+import cellsReducer from "./cellsReducer";
 import { combineReducers } from "redux";
 import bundleReducer from "./bundlesReducer";
 
 const rootReducer = combineReducers({
-  cells: cellReducer,
+  cells: cellsReducer,
   bundles: bundleReducer,
 });
 
