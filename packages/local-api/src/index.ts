@@ -9,7 +9,6 @@ export const serve = (
   dir: string,
   useProxy: boolean
 ): Promise<void> => {
-
   const app = express();
 
   if (useProxy) {
@@ -25,7 +24,7 @@ export const serve = (
     app.use(express.static(path.dirname(pkgPath)));
   }
 
-  app.use(createCellsRouter(filename, dir))
+  app.use(createCellsRouter(filename, dir));
 
   return new Promise<void>((resolve, reject) => {
     app.listen(port, resolve).on("error", reject);

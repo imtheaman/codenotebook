@@ -55,4 +55,3 @@ store.dispatch({
   },
 });
 
-store.getState();

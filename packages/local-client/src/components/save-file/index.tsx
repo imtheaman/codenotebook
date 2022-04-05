@@ -1,18 +1,30 @@
+import { useState } from "react";
 import "./styles.css";
+import { useTypedSelector } from "../../hooks/use-typed-selector";
 
 const ShareFile = () => {
+  const [filename, setFilename] = useState("");
+  const cellsData = useTypedSelector(({ cells }) => cells);
   const changeHandler = (e: any) => {
-    console.log(e.target.value);
+    setFilename(e.target.value);
   };
 
   const submitHandler = (e: any) => {
     e.preventDefault();
+    fetch(`/notebook/${filename}`, {
+      method: "POST",
+      body: JSON.stringify({
+        _id: filename,
+        ...cellsData,
+      }),
+    }).then((res) => console.log(`File is available at ${res}`));
   };
   return (
     <form className="save-file-container">
       <input
         type="text"
-        className="input "
+        className="input"
+        value={filename}
         onChange={changeHandler}
         placeholder="your filename will be url of the file"
       />

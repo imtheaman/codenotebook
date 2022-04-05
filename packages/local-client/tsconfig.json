@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "backend", "database", "src/setupProxy.js"  ]
 }
