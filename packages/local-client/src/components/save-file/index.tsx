@@ -1,33 +1,66 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./styles.css";
 import { useTypedSelector } from "../../hooks/use-typed-selector";
 
 const ShareFile = () => {
   const [filename, setFilename] = useState("");
+  const [message, setMessage] = useState("");
+
   const cellsData = useTypedSelector(({ cells }) => cells);
   const changeHandler = (e: any) => {
+    setMessage("");
     setFilename(e.target.value);
   };
 
-  const submitHandler = (e: any) => {
-    e.preventDefault();
-    fetch(`/notebook/${filename}`, {
+  const saveFile = useCallback((notebookName: string, cellsData) => {
+    fetch(`/notebook/${notebookName}`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({
-        _id: filename,
-        ...cellsData,
+        _id: notebookName,
+        cells: cellsData,
       }),
-    }).then((res) => console.log(`File is available at ${res}`));
+    }).then((res) => {
+      const temp = res.url.split("/").slice(-1);
+      setMessage(
+        `File saved. You can access it at http://js-notebook.vercel.app/${temp}`
+      );
+    });
+  }, []);
+
+  const submitHandler = async (e: any) => {
+    const notebookName = filename.trim().toLowerCase().replaceAll(" ", "-");
+
+    e.preventDefault();
+    await fetch(`/check/${notebookName}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.toString() === "0") {
+          return true;
+        } else {
+          setMessage("filename exists! please change the filename.");
+          return false;
+        }
+      })
+      .then((res) => (res ? saveFile(notebookName, cellsData) : null));
   };
   return (
     <form className="save-file-container">
-      <input
-        type="text"
-        className="input"
-        value={filename}
-        onChange={changeHandler}
-        placeholder="your filename will be url of the file"
-      />
+      <div style={{ width: "100%" }}>
+        <input
+          type="text"
+          className="input"
+          value={filename}
+          onChange={changeHandler}
+          placeholder="your filename will be url of the file"
+        />
+        <p>{message}</p>
+      </div>
       <button className="button" type="submit" onClick={submitHandler}>
         Save & Share this file
       </button>

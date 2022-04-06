@@ -13,8 +13,11 @@ app.get("/notebook/:name", async (req, res) => {
   });
 });
 
-app.post("/notebook/:name", (req, res) => {
-  console.log(req.body);
+app.post("/notebook/:name", async (req, res) => {
+  await insertDoc(req.body).then((response) => {
+    console.log(response);
+    res.send(response);
+  });
 });
 
 app.get("/check/:name", async (req, res) => {
