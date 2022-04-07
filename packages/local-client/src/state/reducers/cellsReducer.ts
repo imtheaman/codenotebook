@@ -59,6 +59,9 @@ const cellsReducer = produce(
 
         state.data[cell.id] = cell;
         return state;
+      case ActionType.SET_CELLS_STATE:
+        state = action.payload;
+        return state;
       default:
         return state;
     }

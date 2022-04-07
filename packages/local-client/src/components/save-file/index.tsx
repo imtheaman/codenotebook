@@ -13,22 +13,24 @@ const ShareFile = () => {
   };
 
   const saveFile = useCallback((notebookName: string, cellsData) => {
-    fetch(`/notebook/${notebookName}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        _id: notebookName,
-        cells: cellsData,
-      }),
-    }).then((res) => {
-      const temp = res.url.split("/").slice(-1);
-      setMessage(
-        `File saved. You can access it at http://js-notebook.vercel.app/${temp}`
-      );
-    });
+    if (cellsData) {
+      fetch(`/notebook/${notebookName}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _id: notebookName,
+          cells: cellsData,
+        }),
+      }).then((res) => {
+        const temp = res.url.split("/").slice(-1);
+        setMessage(
+          `File saved. You can access it at http://js-notebook.vercel.app/${temp}`
+        );
+      });
+    } else setMessage("Content can't be empty");
   }, []);
 
   const submitHandler = async (e: any) => {

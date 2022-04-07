@@ -7,8 +7,10 @@ import {
   MoveCellAction,
   UpdateCellAction,
   Action,
+  SetCellsStateAction,
 } from "../actions";
 import { CellTypes, Direction, Id } from "../cell.type";
+import { CellsState } from "../reducers/cellsReducer";
 
 export const moveCell = (id: Id, direction: Direction): MoveCellAction => {
   return {
@@ -49,6 +51,13 @@ export const insertCellAfter = (
       type,
       content,
     },
+  };
+};
+
+export const setCellsState = (cells: CellsState): SetCellsStateAction => {
+  return {
+    type: ActionType.SET_CELLS_STATE,
+    payload: cells,
   };
 };
 

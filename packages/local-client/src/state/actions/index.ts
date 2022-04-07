@@ -1,5 +1,6 @@
 import { ActionType } from "../action-types";
 import { Id, CellTypes } from "../cell.type";
+import { CellsState } from "../reducers/cellsReducer";
 
 export interface MoveCellAction {
   type: ActionType.MOVE_CELL;
@@ -49,10 +50,16 @@ export interface BundleCompleteAction {
   };
 }
 
+export interface SetCellsStateAction {
+  type: ActionType.SET_CELLS_STATE;
+  payload: CellsState;
+}
+
 export type Action =
   | MoveCellAction
   | DeleteCellAction
   | UpdateCellAction
   | InsertCellAfterAction
   | BundleStartAction
-  | BundleCompleteAction;
+  | BundleCompleteAction
+  | SetCellsStateAction;

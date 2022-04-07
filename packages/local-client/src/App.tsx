@@ -3,16 +3,32 @@ import "./App.css";
 import "bulmaswatch/superhero/bulmaswatch.min.css";
 import Loader from "./components/loader";
 import ShareFile from "./components/save-file";
+import { Navigate, Route, Routes, useParams } from "react-router-dom";
+import { useActions } from "./hooks/use-actions";
 
 const CellList = lazy(() => import("./components/CellList"));
 
 const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate replace to="/basic-template" />} />
+      <Route path="/:name" element={<Page />} />
+    </Routes>
+  );
+};
+
+export default App;
+
+const Page: React.FC = () => {
+  const params = useParams();
+  console.log(params);
+  const { setCellsState } = useActions();
   useEffect(() => {
-    fetch("/notebook/finding-the-best-result-twice", {
+    fetch(`/notebook/${params.name}`, {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => setCellsState(res.cells))
       .catch((err) => console.error("couldnt get the result from server", err));
   });
   return (
@@ -22,5 +38,3 @@ const App = () => {
     </Suspense>
   );
 };
-
-export default App;
