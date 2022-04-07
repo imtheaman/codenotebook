@@ -21,7 +21,6 @@ export default App;
 
 const Page: React.FC = () => {
   const params = useParams();
-  console.log(params);
   const { setCellsState } = useActions();
   useEffect(() => {
     fetch(`/notebook/${params.name}`, {
