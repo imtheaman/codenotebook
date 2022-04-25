@@ -1,6 +1,7 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
-// const process = require("dotenv").config();
-const uri = process.env.mongodb_uri;
+// DB IS PROTECTED BY IP ADDRESS
+const uri =
+  "mongodb+srv://urtheaman:nQM2UP3mbuF5Oyto@cluster0.qlwoo.mongodb.net/js-notebook?retryWrites=true&w=majority&ssl=true";
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
