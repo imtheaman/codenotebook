@@ -1,7 +1,6 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 // DB IS PROTECTED BY IP ADDRESS
-const uri =
-  "mongodb+srv://urtheaman:nQM2UP3mbuF5Oyto@cluster0.qlwoo.mongodb.net/js-notebook?retryWrites=true&w=majority&ssl=true";
+const uri = "mongodb+srv://urtheaman:nQM2UP3mbuF5Oyto@cluster0.qlwoo.mongodb.net/js-notebook?retryWrites=true&w=majority&ssl=true"
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const { insertDoc, readDoc, checkExistOrNot } = require("../database/utils");
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 80;
 
 app.use(bodyParser.json());
 
