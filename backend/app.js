@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { insertDoc, readDoc, checkExistOrNot } = require("./database/utils");
+const { insertDoc, readDoc, checkExistOrNot } = require("../database/utils");
 
 const app = express();
 const port = 4000;
@@ -15,7 +15,6 @@ app.get("/notebook/:name", async (req, res) => {
 
 app.post("/notebook/:name", async (req, res) => {
   await insertDoc(req.body).then((response) => {
-    console.log(response);
     res.send(response);
   });
 });
