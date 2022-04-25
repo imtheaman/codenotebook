@@ -1,10 +1,23 @@
 {
-  "name": "root",
-  "private": true,
-  "devDependencies": {
-    "lerna": "^5.1.1"
-  },
+  "name": "js-notebook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "lerna run start --parallel"
+    "start": "concurrently \"cd client && npm start\" \"cd server && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urtheaman/js-notebook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/urtheaman/js-notebook/issues"
+  },
+  "homepage": "https://js-notebook-urtheaman.vercel.app",
+  "dependencies": {
+    "concurrently": "^7.1.0"
   }
 }

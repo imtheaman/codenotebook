@@ -1,6 +1,7 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-  "mongodb+srv://urtheaman:7279856900@cluster0.qlwoo.mongodb.net/js-notebook?retryWrites=true&w=majority";
+const dotenv = require('dotenv')
+const process = dotenv.config()
+const uri = process?.parsed?.mongodb_uri;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
