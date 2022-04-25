@@ -17,19 +17,14 @@
     "@types/react-resizable": "1.7.2",
     "@uiw/react-md-editor": "2.1.1",
     "axios": "0.21.1",
-    "body-parser": "^1.20.0",
     "bulmaswatch": "^0.8.1",
-    "concurrently": "^7.1.0",
-    "dotenv": "^16.0.0",
     "esbuild-wasm": "0.8.27",
-    "express": "^4.17.3",
     "http-proxy-middleware": "^2.0.4",
     "immer": "^9.0.12",
     "jscodeshift": "0.11.0",
     "localforage": "^1.9.0",
     "monaco-editor": "0.21.2",
     "monaco-jsx-highlighter": "0.0.15",
-    "mongodb": "^4.5.0",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -45,7 +40,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "concurrently \"serve -s build\" \"cd backend && node app.js\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -69,6 +64,7 @@
     ]
   },
   "devDependencies": {
-    "@types/express": "^4.17.13"
+    "@types/express": "^4.17.13",
+    "@types/react-router-dom": "^5.3.3"
   }
 }
