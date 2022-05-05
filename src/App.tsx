@@ -32,7 +32,7 @@ const Page: React.FC = () => {
       }
     )
       .then((res) => res.json())
-      .then((res) => setCellsState(res.cells))
+      .then((res) => setCellsState(res?.cells))
       .catch((err) => console.error("couldnt get the result from server", err));
   });
   return (
