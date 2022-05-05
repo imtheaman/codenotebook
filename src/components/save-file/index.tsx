@@ -9,7 +9,7 @@ const ShareFile = () => {
   const params = useParams()
   
   useEffect(() => {
-    setFilename(params.name)
+    setFilename(params?.name || '')
   },[])
   
   const cellsData = useTypedSelector(({ cells }) => cells);
