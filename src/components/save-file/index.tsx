@@ -1,12 +1,17 @@
 import { useCallback, useState } from "react";
 import "./styles.css";
 import { useTypedSelector } from "../../hooks/use-typed-selector";
-import { useRouter } from '
+import { useParams } from 'react-router-dom';
 
 const ShareFile = () => {
   const [filename, setFilename] = useState("");
   const [message, setMessage] = useState("");
-
+  const params = useParams()
+  
+  useEffect(() => {
+    setFilename(params.name)
+  },[])
+  
   const cellsData = useTypedSelector(({ cells }) => cells);
   const changeHandler = (e: any) => {
     setMessage("");
