@@ -37,7 +37,7 @@ const ShareFile = () => {
     const notebookName = filename.trim().toLowerCase().replaceAll(" ", "-");
 
     e.preventDefault();
-    await fetch(`/check/${notebookName}`, {
+    await fetch(`https://js-notebook-urtheaman.herokuapp.com/notebook/check/${notebookName}`, {
       method: "GET",
     })
       .then((res) => res.json())
