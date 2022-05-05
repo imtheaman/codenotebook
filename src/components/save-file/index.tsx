@@ -14,7 +14,7 @@ const ShareFile = () => {
 
   const saveFile = useCallback((notebookName: string, cellsData) => {
     if (cellsData) {
-      fetch(`/notebook/${notebookName}`, {
+      fetch(`https://js-notebook-urtheaman.herokuapp.com/notebook/${notebookName}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
