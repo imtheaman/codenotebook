@@ -27,7 +27,7 @@ const ShareFile = () => {
       }).then((res) => {
         const temp = res.url.split("/").slice(-1);
         setMessage(
-          `File saved. You can access it at http://js-notebook.vercel.app/${temp}`
+          `File saved. You can access it at http://js-notebook-urtheaman.vercel.app/${temp}`
         );
       });
     } else setMessage("Content can't be empty");
@@ -37,7 +37,7 @@ const ShareFile = () => {
     const notebookName = filename.trim().toLowerCase().replaceAll(" ", "-");
 
     e.preventDefault();
-    await fetch(`https://js-notebook-urtheaman.herokuapp.com/notebook/check/${notebookName}`, {
+    await fetch(`https://js-notebook-urtheaman.herokuapp.com/check/${notebookName}`, {
       method: "GET",
     })
       .then((res) => res.json())
