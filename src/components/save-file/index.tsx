@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import "./styles.css";
 import { useTypedSelector } from "../../hooks/use-typed-selector";
+import { useRouter } from '
 
 const ShareFile = () => {
   const [filename, setFilename] = useState("");
@@ -26,8 +27,9 @@ const ShareFile = () => {
         }),
       }).then((res) => {
         const temp = res.url.split("/").slice(-1);
+        const url = `https://js-notebook-urtheaman.vercel.app/${temp}`
         setMessage(
-          `File saved. You can access it at http://js-notebook-urtheaman.vercel.app/${temp}`
+          `File saved. You can access it at <a href=${url}>${url}</a>`
         );
       });
     } else setMessage("Content can't be empty");
