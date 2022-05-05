@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import "./styles.css";
 import { useTypedSelector } from "../../hooks/use-typed-selector";
 import { useParams } from 'react-router-dom';
