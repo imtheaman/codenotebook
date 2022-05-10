@@ -16,7 +16,7 @@
     "@types/react-redux": "7.1.15",
     "@types/react-resizable": "1.7.2",
     "@uiw/react-md-editor": "2.1.1",
-    "axios": "0.21.1",
+    "axios": "0.21.2",
     "bulmaswatch": "^0.8.1",
     "esbuild-wasm": "0.8.27",
     "http-proxy-middleware": "^2.0.4",
