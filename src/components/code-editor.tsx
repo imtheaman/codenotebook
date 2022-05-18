@@ -57,7 +57,13 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
   };
 
   return (
-    <div className="editor-wrapper">
+    <div className="editor-wrapper"
+      onKeyDownCapture={(e) => {
+        if (e.keyCode === 83 && e.ctrlKey) {
+          e.preventDefault();
+          onFormatClick();
+        }
+      }}>
       <button
         className="button button-format is-small"
         onClick={onFormatClick}
