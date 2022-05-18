@@ -18,10 +18,10 @@ export const useCumulativeCode = (cellId: string) => {
             if (value.$$typeof && value.props) {
                 _ReactDOM.render(value, reactRoot)
             } else {
-                root.innerHTML += JSON.stringify(value);
+                root.innerHTML += JSON.stringify(value)+'<br/>';
             } 
         } else {
-                root.innerHTML += value
+                root.innerHTML += value+'<br/>'
         }
     };
     `;
