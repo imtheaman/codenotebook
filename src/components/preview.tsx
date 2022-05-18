@@ -15,8 +15,7 @@ const html = `
 }
 
 ::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
+  height: 5px;
   background-color: transparent;
 }
 
@@ -24,7 +23,7 @@ const html = `
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: rgb(157, 157, 157);
+  background-color: #686e75;
 }</style>
       </head>
       <body>
