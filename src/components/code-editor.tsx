@@ -65,6 +65,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
         }
       }}>
       <button
+        title='Ctrl+S to format'
         className="button button-format is-small"
         onClick={onFormatClick}
       >
