@@ -25,6 +25,7 @@ const ShareFile = () => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
+	"Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify({
           _id: notebookName,
@@ -46,6 +47,7 @@ const ShareFile = () => {
     e.preventDefault();
     await fetch(`https://js-notebook-urtheaman.herokuapp.com/check/${notebookName}`, {
       method: "GET",
+	"Access-Control-Allow-Origin": "*"
     })
       .then((res) => res.json())
       .then((res) => {
