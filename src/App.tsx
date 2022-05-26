@@ -29,7 +29,9 @@ const Page: React.FC = () => {
       `https://js-notebook-urtheaman.herokuapp.com/notebook/${params.name}`,
       {
         method: "GET",
-	"Access-Control-Allow-Origin": "*"
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        }
       }
     )
       .then((res) => res.json())
