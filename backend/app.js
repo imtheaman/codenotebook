@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { insertDoc, readDoc, checkExistOrNot } = require("../database/utils");
+const http = require('http')
 
 const app = express();
 const port = process.env.PORT || 80;
@@ -10,12 +11,14 @@ app.use(bodyParser.json());
 app.get("/notebook/:name", async (req, res) => {
   await readDoc(req.params.name).then((response) => {
     res.json(response);
+    res.setHeader("Access-Control-Allow-Origin", "*")
   });
 });
 
 app.post("/notebook/:name", async (req, res) => {
   await insertDoc(req.body).then((response) => {
     res.send(response);
+    res.setHeader("Access-Control-Allow-Origin", "*")
   });
 });
 
